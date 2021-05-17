@@ -11,9 +11,9 @@ CREATE TABLE `basket` (
 	`ba_create_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`ba_update_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
 	`ba_update_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`ba_id`)
-	KEY `basket_idx01`(`ba_basket_id`)
-	KEY `basket_idx02`(`ba_buyer_id`)
+	PRIMARY KEY (`ba_id`),
+	KEY `basket_idx01`(`ba_basket_id`),
+	KEY `basket_idx02`(`ba_buyer_id`),
 	KEY `basket_idx03`(`ba_shop_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -32,9 +32,9 @@ CREATE TABLE `basket_detail` (
 	`bd_create_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`bd_update_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
 	`bd_update_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`bd_id`)
-	KEY `basket_detail_idx01`(`bd_basket_detail_id`)
-	KEY `basket_detail_idx02`(`bd_basket_id`)
+	PRIMARY KEY (`bd_id`),
+	KEY `basket_detail_idx01`(`bd_basket_detail_id`),
+	KEY `basket_detail_idx02`(`bd_basket_id`),
 	KEY `basket_detail_idx03`(`bd_product_detail_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -47,14 +47,15 @@ CREATE TABLE `order_header` (
 	`oh_tol_amt` DECIMAL(11,4) DEFAULT NULL,
 	`oh_tol_shipping` DECIMAL(11,4) DEFAULT NULL,
 	`oh_unified_number` VARCHAR(10) COLLATE utf8mb4_bin DEFAULT NULL,
+	`oh_invoice_number` VARCHAR(50) COLLATE utf8mb4_bin DEFAULT NULL,
 	`oh_status` VARCHAR(10) COLLATE utf8mb4_bin NOT NULL,
 	`oh_disabled` TINYINT(1) NOT NULL DEFAULT '0',
 	`oh_create_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
 	`oh_create_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`oh_update_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
 	`oh_update_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`oh_id`)
-	KEY `order_header_idx01`(`oh_order_id`)
+	PRIMARY KEY (`oh_id`),
+	KEY `order_header_idx01`(`oh_order_id`),
 	KEY `order_header_idx02`(`oh_buyer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -65,10 +66,9 @@ CREATE TABLE `order_detail` (
 	`od_order_detail_id` VARCHAR(20) COLLATE utf8mb4_bin NOT NULL,
 	`od_basket_detail_id` VARCHAR(20) COLLATE utf8mb4_bin NOT NULL,
 	`od_amt` DECIMAL(11,4) DEFAULT NULL,
-	`od_shipping` DECIMAL(11,4) DEFAULT NULL,
-	`od_region` VARCHAR(2) COLLATE utf8mb4_bin NOT NULL,
-	`od_lg_type` VARCHAR(10) COLLATE utf8mb4_bin NOT NULL,
-	`od_lg_sub_type` VARCHAR(10) COLLATE utf8mb4_bin NOT NULL,
+	`od_shipping_amt` DECIMAL(11,4) DEFAULT NULL,
+	`od_region_lg_code` VARCHAR(20) COLLATE utf8mb4_bin NOT NULL,
+	`od_lsp_shipping_id` VARCHAR(50) COLLATE utf8mb4_bin NOT NULL,
 	`od_name` VARCHAR(50) COLLATE utf8mb4_bin NOT NULL,
 	`od_prefix` VARCHAR(6) COLLATE utf8mb4_bin NOT NULL,
 	`od_phone_num` VARCHAR(20) COLLATE utf8mb4_bin NOT NULL,
@@ -86,10 +86,10 @@ CREATE TABLE `order_detail` (
 	`od_create_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`od_update_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
 	`od_update_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`od_id`)
-	KEY `order_detail_idx01`(`od_order_id`)
-	KEY `order_detail_idx02`(`od_order_detail_id`)
-	KEY `order_detail_idx03`(`od_basket_detail_id`)
-	KEY `order_detail_idx04`(`od_region`,`od_lg_type`,`od_lg_sub_type`)
+	PRIMARY KEY (`od_id`),
+	KEY `order_detail_idx01`(`od_order_id`),
+	KEY `order_detail_idx02`(`od_order_detail_id`),
+	KEY `order_detail_idx03`(`od_basket_detail_id`),
+	KEY `order_detail_idx04`(`od_region_lg_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
