@@ -10,7 +10,7 @@ CREATE TABLE `order_detail_status_log` (
 	`osl_update_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
 	`osl_update_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (`osl_id`)
-	KEY `order_detail_status_log_idx01`(`osl_order_id`)
+	KEY `order_detail_status_log_idx01`(`osl_order_detail_id`)
 	KEY `order_detail_status_log_idx02`(`osl_status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 

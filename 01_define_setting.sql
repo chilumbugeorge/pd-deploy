@@ -56,20 +56,6 @@ CREATE TABLE `def_log_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 
-CREATE TABLE `def_lsp_status_group` (
-	`sg_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`sg_code` VARCHAR(10) COLLATE utf8mb4_bin NOT NULL,
-	`sg_desc` VARCHAR(50) COLLATE utf8mb4_bin NOT NULL,
-	`sg_disabled` TINYINT(1) NOT NULL DEFAULT '0',
-	`sg_create_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
-	`sg_create_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`sg_update_user` VARCHAR(20) COLLATE utf8mb4_bin DEFAULT NULL,
-	`sg_update_timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`sg_id`)
-	UNIQUE `def_lsp_status_group_udx01`(`sg_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
-
 CREATE TABLE `lsp_status_map` (
 	`sm_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`sm_int_code` VARCHAR(10) COLLATE utf8mb4_bin NOT NULL,
