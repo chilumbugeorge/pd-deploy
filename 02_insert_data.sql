@@ -39,5 +39,6 @@ VALUES
  ('SCSN ', 'Seller Check Shop Name', 'API', '1', 'Y', 'N', 'Y', '0', 'SYSTEM', now(), 'SYSTEM', now()), 
  ('SUSN ', 'Seller Update Shop Name', 'API', '1', 'Y', 'N', 'Y', '0', 'SYSTEM', now(), 'SYSTEM', now()), 
  ('ADEF', 'APP Define Setting', 'API', '1', 'N', 'N', 'Y', '0', 'SYSTEM', now(), 'SYSTEM', now()), 
+ ('AGSS', 'Admin Seller Shop', 'ADM', '1', 'Y', 'N', 'Y', '0', 'SYSTEM', now(), 'SYSTEM', now()), 
  ('AGSS', 'Admin Seller Shop', 'ADM', '1', 'Y', 'N', 'Y', '0', 'SYSTEM', now(), 'SYSTEM', now()); 
 

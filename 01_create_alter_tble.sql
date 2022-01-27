@@ -3,7 +3,7 @@
 
 CREATE TABLE `def_shop_type` (
 	`st_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`st_code`         ,
+	`st_code`  VARCHAR(20) COLLATE utf8mb4_bin NOT NULL,
 	`st_title_tc` VARCHAR(255) COLLATE utf8mb4_bin NOT NULL,
 	`st_title_en` VARCHAR(255) COLLATE utf8mb4_bin NOT NULL,
 	`st_disabled` TINYINT(1) NOT NULL DEFAULT '0',
